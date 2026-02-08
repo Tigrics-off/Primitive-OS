@@ -9,5 +9,6 @@ void copy_str(const char *src, char *dest);
 void trim(char *str);
 void srand(unsigned int seed);
 int rand();
+char *lowecase(char *text);
 
 #endif

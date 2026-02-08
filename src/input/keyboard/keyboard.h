@@ -1,7 +1,9 @@
 #ifndef KEYBOARD_H
 #define KEYBOARD_H
 
-char scan2char(unsigned char scancode);
+#include <stdbool.h>
+
+char scan2char(unsigned char scancode, bool shift);
 unsigned char read_keyboard();
 
 #endif

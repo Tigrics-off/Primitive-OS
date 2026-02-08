@@ -163,7 +163,7 @@ void exec(char cmd[])
     }
     else if (strncmp(cmd, "dlt ", 4) == 0)
     {
-        char name[] = &cmd[4];
+        char *name = &cmd[4];
         delete_file(name);
     }
     else if (strncmp(cmd, "te ", 3) == 0)
