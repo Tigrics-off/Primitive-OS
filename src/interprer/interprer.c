@@ -1,4 +1,5 @@
 #include <stdbool.h>
+#include <stdint.h>
 #include "base/printf.h"
 #include "input/power/power.h"
 #include "file_system/file.h"
@@ -112,7 +113,10 @@ void rng(char *cmd)
     }
     
     int trash;
-    srand(trash);
+    int cycles;
+    asm volatile ("rdtsc": "=a"(cycles));
+    
+    srand(trash ^ cycles);
 
     int result = min + rand() % (max - min + 1);
     sprintf_(str, "Random number from %d to %d: %d", min, max, result);
